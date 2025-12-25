@@ -1,25 +1,10 @@
 ---
-const links = [
-    {
-        href: "https://www.linkedin.com/",
-        label: "LinkedIn",
-    },
-    { href: "https://github.com/", label: "GitHub" },
-    { href: "https://x.com/", label: "Twitter" },
-    { href: "mailto:example@gmail.com", label: "Email" },
-];
+import { PERSONAL_INFO } from "../../data/personal";
+import Section from "../UI/Section.astro";
+import Title from "../UI/Title.astro";
 ---
 
-<section
-    id="contact"
-    class="py-24 px-6 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-screen"
->
-    <h2
-        class="text-4xl md:text-6xl font-bold text-white mb-8 text-center text-shadow-purple"
-    >
-        Get in Touch
-    </h2>
-
+<Section id="contact" title="Get in Touch" titleClassName="mb-8">
     <p
         class="text-xl text-gray-400 mb-16 text-center max-w-2xl font-light"
         data-aos="fade-up"
@@ -36,22 +21,17 @@ const links = [
         data-aos-delay="400"
     >
         {
-            links.map((link) => (
-                <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="block font-bold w-full rounded-xl bg-[#140d7c] hover:bg-[#0f0a55] drop-shadow-[5px_5px_0_#870deb] px-6 py-4 text-center text-white"
-                >
-                    {link.label}
-                </a>
-            ))
+            PERSONAL_INFO.socialLinks &&
+                PERSONAL_INFO.socialLinks.map((link) => (
+                    <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block font-bold w-full rounded-xl bg-[#140d7c] hover:bg-[#0f0a55] drop-shadow-[5px_5px_0_#870deb] px-6 py-4 text-center text-white"
+                    >
+                        {link.label}
+                    </a>
+                ))
         }
     </div>
-</section>
-
-<style>
-    .text-shadow-purple {
-        text-shadow: 2px 2px 0 #870deb;
-    }
-</style>
+</Section>
