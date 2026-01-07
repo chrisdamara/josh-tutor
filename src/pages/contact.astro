@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout seoTitle="Contact | Josh Mega Tutoring" seoDescription="Book a free call, ask a question, or request a lesson. Contact Josh Mega Tutoring in Birmingham or online UK.">
+  <section class="max-w-xl mx-auto py-12 px-4 text-center mt-16">
+    <h1 class="text-3xl font-bold mb-6">Contact & Booking</h1>
+    <p class="mb-6">Book a free call, ask a question, or request a lesson. Birmingham-based, online nationwide.</p>
+    <div class="mb-8">
+      <a href="https://calendly.com/joshmegatutoring/free-call" target="_blank" rel="noopener" class="px-6 py-3 bg-primary text-white font-bold rounded-3xl text-lg shadow">Book a Free Call (Calendly)</a>
+    </div>
+    <form class="space-y-4 max-w-md mx-auto text-left">
+      <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 rounded border" />
+      <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 rounded border" />
+      <textarea name="message" placeholder="Your Message" required class="w-full px-4 py-2 rounded border"></textarea>
+      <button type="submit" class="px-6 py-2 bg-primary text-white rounded font-semibold">Send Message</button>
+    </form>
+    <div class="mt-8 text-gray-400 text-sm">
+      Or email: <a href="mailto:hello@gcsetutortwins.co.uk" class="underline text-primary">hello@gcsetutortwins.co.uk</a><br />
+      In-person available in Birmingham. Online UK-wide.
+    </div>
+  </section>
+</Layout>

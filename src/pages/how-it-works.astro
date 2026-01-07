@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { FAQS } from "../data/faqs";
+import { TESTIMONIALS } from "../data/testimonials";
+---
+<Layout seoTitle="How It Works | Josh Mega Tutoring" seoDescription="See how our tutoring process works: free call, diagnostic, weekly lessons, homework, monthly parent reports, and exam phase. Simple, structured, and effective.">
+  <section class="max-w-3xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-bold mb-6 text-center mt-16">How It Works</h1>
+    <ol class="space-y-6 text-lg">
+      <li><strong>1. Free call:</strong> Discuss goals, subjects, and exam boards.</li>
+      <li><strong>2. Diagnostic assessment:</strong> Identify strengths and gaps.</li>
+      <li><strong>3. First lesson:</strong> Warm-up, content clarity, past paper focus, feedback.</li>
+      <li><strong>4. Weekly tutoring:</strong> 1:1 or group, flexible lesson lengths.</li>
+      <li><strong>5. Homework & marking:</strong> Set and mark homework for progress.</li>
+      <li><strong>6. Monthly parent update:</strong> 2-min video or PDF report.</li>
+      <li><strong>7. Exam phase:</strong> Past paper mastery and exam technique clinics.</li>
+    </ol>
+    <div class="mt-10 text-center">
+      <hr class="my-8 border-0 h-1 bg-[#7836cf] rounded-full w-32 mx-auto" />
+    </div>
+  </section>
+  <section class="max-w-3xl mx-auto py-12 px-4">
+    <h2 class="text-2xl font-bold mb-4 text-center">Frequently Asked Questions</h2>
+    <ul class="space-y-6">
+      {FAQS.map(faq => (
+        <li class="border-b pb-4">
+          <strong>{faq.question}</strong>
+          <p>{faq.answer}</p>
+        </li>
+      ))}
+    </ul>
+    <div class="mt-10 text-center">
+      <hr class="my-8 border-0 h-1 bg-[#7836cf] rounded-full w-32 mx-auto" />
+    </div>
+  </section>
+  <section class="max-w-4xl mx-auto py-12 px-4">
+    <h2 class="text-2xl font-bold mb-4 text-center">Reviews & Results</h2>
+    <div class="space-y-8">
+      {TESTIMONIALS.map(t => (
+        <blockquote class="border-l-4 border-primary pl-4 italic text-lg">
+          “{t.quote}”
+          <footer class="mt-2 text-sm text-gray-400">{t.name} ({t.yearGroup}, {t.subject}) — {t.result}</footer>
+        </blockquote>
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <hr class="my-8 border-0 h-1 bg-[#7836cf] rounded-full w-32 mx-auto" />
+    </div>
+  </section>
+</Layout>

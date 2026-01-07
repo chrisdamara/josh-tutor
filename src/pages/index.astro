@@ -1,16 +1,80 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Section from "../components/UI/Section.astro";
 import Header from "../components/Header/Header.astro";
 import StatsBanner from "../components/Banners/StatsBanner.astro";
 import About from "../components/About/About.astro";
-import Projects from "../components/Proyect/Projects.astro";
 import Contact from "../components/Contact/Contact.astro";
+import { TESTIMONIALS } from "../data/testimonials";
 ---
 
 <Layout>
-	<Header />
-	<StatsBanner />
-	<About />
-	<Projects />
-	<Contact />
+  <Section id="home" title="">
+    <div class="flex flex-col items-center justify-center text-center py-12 px-4">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4 text-white">Friendly, focused tutoring — and simple exam techniques that really work.</h1>
+      <p class="text-lg md:text-2xl text-white mb-6 max-w-2xl font-medium">
+        GCSE & A-Level Science & Maths Specialists<br />
+        Also offer KS3 (Years 7–9)<br />
+        Birmingham-based, online nationwide
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
+        <!-- Josh -->
+        <div class="relative group mx-auto">
+          <div class="absolute -inset-1 rounded-2xl"></div>
+          <div class="relative">
+            <img src="/images/josh-tutor.png" alt="Josh - Science Tutor" class="rounded-2xl w-full max-w-xs object-cover shadow-[8px_8px_0_#7836cf]" />
+          </div>
+          <div class="mt-4">
+            <span class="font-semibold text-white text-lg">Josh</span>
+            <span class="block text-xs text-gray-400">Biology & Chemistry</span>
+			<span class="block text-xs text-gray-400">Biology PhD Alberta</span>
+          </div>
+        </div>
+        <!-- Ben -->
+        <div class="relative group mx-auto">
+          <div class="absolute -inset-1 rounded-2xl"></div>
+          <div class="relative">
+            <img src="/images/ben-tutor.png" alt="Ben - Physics & Maths Tutor" class="rounded-2xl w-full max-w-xs object-cover shadow-[8px_8px_0_#7836cf]" />
+          </div>
+          <div class="mt-4">
+            <span class="font-semibold text-white text-lg">Ben</span>
+            <span class="block text-xs text-gray-400">Physics & Maths</span>
+			<span class="block text-xs text-gray-400">Physics PhD Oxford</span>
+          </div>
+        </div>
+      </div>
+      <a href="/contact" class="px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-3xl transition-all duration-150 drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none text-lg">Book a Free Call</a>
+    </div>
+  </Section>
+  <Header />
+  <StatsBanner />
+  <About />
+  <Section id="reviews" title="Reviews & Results" class="mt-0">
+    <div class="w-full flex flex-col gap-4 mx-auto" data-aos="fade-left">
+      {TESTIMONIALS.map(t => (
+        <blockquote class="border-l-4 border-primary pl-4 italic text-lg">
+          “{t.quote}”
+          <footer class="mt-2 text-sm text-gray-400">{t.name} ({t.yearGroup}, {t.subject}) — {t.result}</footer>
+        </blockquote>
+      ))}
+    </div>
+  </Section>
+  <Section id="contact" title="Get in Touch" class="mt-0 mb-0">
+    <section class="max-w-xl mx-auto py-0 px-4 text-center">
+      <p class="mb-6">Book a free call, ask a question, or request a lesson. Birmingham-based, online nationwide.</p>
+      <div class="mb-8">
+        <a href="https://calendly.com/joshmegatutoring/free-call" target="_blank" rel="noopener" class="px-6 py-3 bg-primary text-white font-bold rounded-3xl text-lg shadow">Book a Free Call (Calendly)</a>
+      </div>
+      <form class="space-y-4 max-w-md mx-auto text-left">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 rounded border" />
+        <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 rounded border" />
+        <textarea name="message" placeholder="Your Message" required class="w-full px-4 py-2 rounded border"></textarea>
+        <button type="submit" class="px-6 py-2 bg-primary text-white rounded font-semibold">Send Message</button>
+      </form>
+      <div class="mt-8 text-gray-400 text-sm">
+        Or email: <a href="mailto:hello@gcsetutortwins.co.uk" class="underline text-primary">hello@gcsetutortwins.co.uk</a><br />
+        In-person available in Birmingham. Online UK-wide.
+      </div>
+    </section>
+  </Section>
 </Layout>
